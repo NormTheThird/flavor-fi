@@ -1,0 +1,35 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div id="mobile-menu">
+                <div class="left-nav-toggle">
+                    <a href="#">
+                        <i class="stroke-hamburgermenu"></i>
+                    </a>
+                </div>
+            </div>
+            <span class="navbar-brand">
+                FlavorFi
+            </span>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            @*<div class="left-nav-toggle">
+                <a href="">
+                    <i class="stroke-hamburgermenu"></i>
+                </a>
+            </div>*@
+            <ul class="nav navbar-nav navbar-right m-t-sm">
+                <li class="profil-link">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span>@User.Identity.Name</span>
+                        <span class="fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="#"><i class="fa fa-edit pull-right"></i>Edit Profile</a></li>
+                        <li><a href="@Url.Action("LogOut","Security")"><i class="fa fa-sign-out pull-right"></i>Sign Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

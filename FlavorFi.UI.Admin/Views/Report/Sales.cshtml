@@ -1,0 +1,59 @@
+﻿@Html.Partial("_PaginationTemplate")
+
+<div data-bind="with: CurrentVM">
+    <div id="ReportPage" class="pt-10">
+        <div class="container well wait-container-wrapper">
+            <div class="wait-container row" data-bind="visible: IsLoading()">
+                <div class="col-xs-12 loading-img">
+                    <img src="/Content/img/loading.gif" alt="loading-img" />
+                </div>
+            </div>
+
+            <h1 class="text-center">Sales Report</h1>
+            <div class="row pt-10">
+                <div class="form-group col-sm-6 col-sm-offset-3">
+                    <label for="input1" class="form-label">Select date range for sales report</label>
+                    <div id="datepicker" class="input-daterange input-group">
+                        <input class="input-lg form-control datepicker" placeholder="Start Date" name="start" data-provide="datepicker" data-bind="value: StartDate.ToShortDate()" />
+                        <span class="input-group-addon">to</span>
+                        <input class="input-lg form-control datepicker" placeholder="End Date" name="end" data-provide="datepicker" data-bind="value: EndDate.ToShortDate()" />
+                    </div>
+                </div>
+
+                <div class="form-inline text-center col-sm-6 col-sm-offset-3">
+                    <div class="form-group" id="form-dates">
+                        <a data-bind="click: ThisMonth">this month </a>&nbsp;|&nbsp;
+                        <a data-bind="click: LastMonth">last month</a>&nbsp;|&nbsp;
+                        <a data-bind="click: ThisYear">this year</a>
+                    </div>
+                </div>
+
+                <div class="form-inline text-center col-sm-2 col-sm-offset-5 pt-10">
+                    <input type="submit" class="btn btn-default" value="Run Report" data-bind="click: GetReportData" />
+                </div>
+            </div>
+
+            <div class="form-group row text-center pt-25" data-bind="with: SalesReport">
+                <h4 class="col-md-6">
+                    Gross Sales: <br /><span class="text-blue" data-bind="text: GrossSales.ToAmount()"></span>
+                </h4>
+                <h4 class="col-md-6">
+                    Discounts: <br /><span class="text-blue" data-bind="text: Discounts.ToAmount()"></span>
+                </h4>
+                @*<h4 class="col-md-6">
+                        Returns: <br /><span class="text-blue" data-bind="text: Returns.ToAmount()"></span>
+                    </h4>
+                    <h4 class="col-md-6">
+                        Total Sales Tax: <br /><span class="text-blue" data-bind="text: SalesTax.ToAmount()"></span>
+                    </h4>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new SalesReportViewModel());
+    </script>
+}

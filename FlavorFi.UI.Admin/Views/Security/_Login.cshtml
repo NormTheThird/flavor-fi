@@ -1,0 +1,47 @@
+﻿<div id="security-login" style="display: none">
+    <div class="loader">
+        <div class="loader-dots"></div>
+    </div>
+
+    <div class="container-center animated slideInDown">
+
+        <div class="view-header">
+            <div class="header-icon">
+                <i class="pe page-header-icon pe-7s-unlock"></i>
+            </div>
+            <div class="header-title">
+                <h3>Sign In</h3>
+                <small>
+                    Please enter your credentials to login.
+                </small>
+            </div>
+        </div>
+
+        <div class="panel panel-filled">
+            <div class="panel-body">
+                <form novalidate>
+                    <div class="form-group">
+                        <label class="control-label" for="login-email">Email</label>
+                        <input id="login-email" name="login-email" type="text" placeholder="example@gmail.com" title="Please enter you email" required="" class="form-control" data-bind="value: Email">
+                        <span class="help-block small">Your email you signed up with</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="login-password">Password</label>
+                        <input id="login-password" name="login-password" type="password" title="Please enter your password" placeholder="******" required="" class="form-control" data-bind="value: Password">
+                        <span class="help-block small">Your strong password</span>
+                    </div>
+                    <div>
+                        <button class="btn btn-accent" data-bind="click: ValidateAccount">Login</button>
+                        <button class="btn btn-default" data-bind="click: ShowRegisterAccount">Register</button>
+                        <a class="pull-right m-t-sm" data-bind="click: ShowForgotPassword">Lost your password?</a>
+                    </div>
+                    <div class="m-t-md text-center">
+                        <p>Flavor Fi &copy; @DateTime.Today.Year Privacy and Terms</p>
+                    </div>
+                    <h4 class="text-danger text-center" data-bind="text: ErrorMessage"></h4>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

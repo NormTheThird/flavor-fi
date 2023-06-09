@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB62E073-E9AE-4153-84EA-EEE77D8046C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FlavorFi.Common</RootNamespace>
+    <AssemblyName>FlavorFi.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dropbox.Api, Version=4.0.0.0, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.4.9.3\lib\net45\Dropbox.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RestSharp, Version=106.6.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converters\Convert.cs" />
+    <Compile Include="Enums\HelperEnums.cs" />
+    <Compile Include="Enums\ShopifyEnums.cs" />
+    <Compile Include="Enums\UploadType.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Helpers\Bitly.cs" />
+    <Compile Include="Helpers\DateTimeConvert.cs" />
+    <Compile Include="Helpers\Dropbox.cs" />
+    <Compile Include="Helpers\Security.cs" />
+    <Compile Include="Models\DatabaseModels\AddressModel.cs" />
+    <Compile Include="Models\DatabaseModels\StandaloneApplicationModels.cs" />
+    <Compile Include="Models\DatabaseModels\DatabaseSyncModels.cs" />
+    <Compile Include="Models\DatabaseModels\ModuleModels.cs" />
+    <Compile Include="Models\DatabaseModels\ReportModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyAddressModels.cs" />
+    <Compile Include="Models\DatabaseModels\CompanyModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyCustomerModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyGiftCardModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyMetafieldModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyOrderModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyProductModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyCollectionModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyWebhookModels.cs" />
+    <Compile Include="Models\DatabaseModels\ShopifyUserModels.cs" />
+    <Compile Include="Models\DatabaseModels\_BaseModels.cs" />
+    <Compile Include="Models\FacebookModels\FacebookAccountModels.cs" />
+    <Compile Include="Models\FacebookModels\FacebookPageModels.cs" />
+    <Compile Include="Models\FacebookModels\_FacebookBaseModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyGiftCardModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyInvnetoryModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyLocationModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyMetafieldModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyProductModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyUserModels.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\StandaloneApplicationRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ModuleRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ReportRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\SecurityRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ShopifyGiftCardRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ShopifyMetafieldsRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ShopifyWebhookRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\UploadRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ShopifyUserRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\CompanyRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ShopifyCollectionRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ShopifyCustomerRequestAndResponses.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyAddressModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyCollectionModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyCustomerModels.cs" />
+    <Compile Include="Models\DatabaseModels\LoggingModels.cs" />
+    <Compile Include="Models\DatabaseModels\SecurityModels.cs" />
+    <Compile Include="Models\DatabaseModels\AccountModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\AccountRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ShopifyOrderRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\ShopifyProductRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\_BaseRequestAndResponse.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\LoggingRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\MessagingRequestAndResponse.cs" />
+    <Compile Include="RequestAndResponses\DatabaseRequestAndResponses\DatabaseSyncRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\FacebookRequestAndResponses\FacebookPageRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\FacebookRequestAndResponses\_BaseRequestAndResponse.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyLocationRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyUserRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyGiftCardRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyOrderRequestAndResponse.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyProductRequestAndResponses.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyOrderModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyRefundModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyTransactionModels.cs" />
+    <Compile Include="Models\ShopifyModels\ShopifyWebhookModels.cs" />
+    <Compile Include="Models\ShopifyModels\_ShopifyBaseModels.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyCollectionRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyCustomerRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyInventoryRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\ShopifyWebhooksRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\ShopifyRequestAndResponses\_ShopifyBaseRequestAndResponses.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

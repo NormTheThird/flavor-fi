@@ -1,0 +1,97 @@
+﻿<div id="top" class="clearfix">
+    <h5 class="text-center" style="padding-top: 15px;">QUALITY</h5>
+</div>
+
+<div style="padding-top:150px;" data-bind="with:CurrentVM">
+
+    <!-- Order number -->
+    <div id="order-number" class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+
+                <div class="row">
+                    <div class="panel-title">
+                        <h1 class="text-center" data-bind="html: OrderHeader" />
+                        <div data-bind="fadeTemplate: Content"></div>
+                    </div>
+                </div>
+
+
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="input1" class="form-label">Scan Order#</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-hashtag"></i></div>
+                                <input type="text" class="form-control" id="orderInput" data-bind="value: OrderNumber, valueUpdate: 'afterkeydown', event: { keypress: Scan }, hasFocus: InputSelected">
+                                <div class="input-group-addon"><a id="orderNumber" data-bind="click:GetOrder"><i class="fa fa-check"></i></a></div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Order Items -->
+    <div id="order-items" class="row" data-bind="visible:ItemsVisible">
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="input1" class="form-label">Scan Item(s)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-hashtag"></i></div>
+                                <input type="text" class="form-control" id="exampleInputAmount" data-bind="value: ItemNumber, valueUpdate: 'afterkeydown', event: { keypress: ScanItem }, hasFocus: ItemSelected">
+                                <div class="input-group-addon"><a id="itemNumber" data-bind="click:GetItem"><i class="fa fa-check"></i></a></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Name</td>
+                                    <td>SKU</td>
+                                    <td>Quantity</td>
+                                    <td>Total</td>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:Order().OrderItems()">
+                                <tr data-bind="css: CheckedQuantity() == Quantity() ? 'fulfilled' : 'not-fulfilled'">
+                                    <td>
+                                        <img style="max-width: 55px; max-height: 75px;" data-bind="attr:{src: Image}" />
+                                    </td>
+                                    <td data-bind="html:Name"></td>
+                                    <td data-bind="html:Sku"></td>
+                                    <td data-bind="html:QuantityDisplay"></td>
+                                    <td data-bind="html:PriceDisplay"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new QualityCheckViewModel());
+    </script>
+}

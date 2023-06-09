@@ -1,0 +1,126 @@
+﻿@*<div class="container mt-10" data-bind="with: CurrentVM()">
+        <div class="well">
+            <h2>User Management</h2>
+            <div class="form-group">
+                <button class="btn btn-default" data-bind="click: EditUser">Add User</button>
+            </div>
+
+            <!-- Add / edit user -->
+            <div id="add-user" class="panel-collapse collapse">
+                <div class="row">
+                    <form id="UserForm">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <input type="text" value="" class="form-control" placeholder="First Name" name="FirstName" data-bind="value: User().FirstName" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="" class="form-control" placeholder="Last Name" name="LastName" data-bind="value: User().LastName" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" value="" class="form-control" placeholder="Username"  data-bind="value: User().Username" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" value="" placeholder="Is Active" data-bind="checked: User().IsActive" />
+                                Is Active
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default" data-bind="click: SaveUser">Save User</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <input type="text" value="" class="form-control" placeholder="Email" name="Email" data-bind="value: User().Email" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="" class="form-control" placeholder="Phone Number" name="PhoneNumber" data-bind="value: User().PhoneNumber.PhoneMask(), valueUpdate: 'afterkeydown'" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="" class="form-control" placeholder="Alternate Phone Number" data-bind="value: User().AltPhoneNumber.PhoneMask(), valueUpdate: 'afterkeydown'" />
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" value="" placeholder="Is Active" data-bind="checked: User().IsCompanyAdmin" />
+                                Is Company Admin
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default" data-bind="click: SendPassLink, visible: User().Id() != Mob.Guid.Empty ">Send Password Link</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- List of users -->
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                            <th>Phone #</th>
+                            <th>Edit User</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Users()">
+                        <tr>
+                            <td data-bind="html: FirstName" />
+                            <td data-bind="html: LastName" />
+                            <td data-bind="html: Email" />
+                            <td data-bind="html: PhoneNumber.PhoneMask()" />
+                            <td>
+                                <a class="link" data-bind="click: $parent.EditUser">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit User
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>*@
+
+<div class="row m-t-sm">
+
+    <div class="col-xs-12">
+        <div class="panel panel-filled">
+
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="media">
+                            <h2 class="m-t-xs m-b-none">
+                                Gift Card Data Upload
+                            </h2>
+                            <small class="text-secondary">Last Updated 12/30/2018</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3 m-t-sm">
+                        <small>
+                            Upload the gift card report in .csv format.
+                        </small>
+                        <div class="btn-group m-t-sm text-center">
+                            <a href="#" class="btn btn-accent">Upload new data</a>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new UserViewModel());
+    </script>
+}

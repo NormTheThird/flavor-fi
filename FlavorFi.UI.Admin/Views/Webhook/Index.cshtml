@@ -1,0 +1,30 @@
+﻿<div id="webhooks" class="container" data-bind="with: CurrentVM">
+
+    <div class="row" data-bind="foreach: ShopifyWebhooks">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="well webhook">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <span class="col-xs-12"> EVENT: <label data-bind="text: Event()"></label></span>
+                        <span class="col-xs-12"> TOPIC: <label data-bind="text: Topic()"></label></span>
+                        <input class="btn btn-default" type="button" value="Activate" data-bind="visible: !IsActive(), click: $parent.ActivateShopifyWebhook" />
+                        <input class="btn btn-danger" type="button" value="Deactivate" data-bind="visible: IsActive(), click: $parent.DeleteShopifyWebhook" />
+                    </div>
+                    <div class="col-xs-6" data-bind="visible: IsActive()">
+                        <div class="pull-right">
+                            <img src="~/Content/img/check.svg" width="75" />
+                            <h2>running</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new WebhookViewModel());
+    </script>
+}

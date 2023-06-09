@@ -1,0 +1,13 @@
+﻿<div data-bind="with: CurrentVM()">
+
+    @Html.Partial("_GiftCardWidget")
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new DashboardViewModel());
+        MainVM.CurrentVM().Load();
+    </script>
+}

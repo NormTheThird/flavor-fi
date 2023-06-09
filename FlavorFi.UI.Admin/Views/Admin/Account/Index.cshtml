@@ -1,0 +1,14 @@
+﻿<div data-bind="with: CurrentVM()">
+
+    @Html.Partial("Account/_AccountList")
+    @Html.Partial("Account/_AccountEdit")
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new AccountAdminViewModel());
+        MainVM.CurrentVM().Load();
+    </script>
+}

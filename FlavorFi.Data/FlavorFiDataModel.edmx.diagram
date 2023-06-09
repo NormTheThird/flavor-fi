@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="02f6108a22e34946a234a731ed76c300" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="FlavorFiModel.Account" Width="1.5" PointX="5.25" PointY="45.125" />
+        <EntityTypeShape EntityType="FlavorFiModel.AccountActivityLog" Width="1.5" PointX="7.5" PointY="73.875" />
+        <EntityTypeShape EntityType="FlavorFiModel.AccountRefreshToken" Width="1.5" PointX="7.5" PointY="57.75" />
+        <EntityTypeShape EntityType="FlavorFiModel.Address" Width="1.5" PointX="3" PointY="45.75" />
+        <EntityTypeShape EntityType="FlavorFiModel.Application" Width="1.5" PointX="6" PointY="34.125" />
+        <EntityTypeShape EntityType="FlavorFiModel.Company" Width="1.5" PointX="0.75" PointY="39.125" />
+        <EntityTypeShape EntityType="FlavorFiModel.CompanySite" Width="1.5" PointX="3" PointY="50.375" />
+        <EntityTypeShape EntityType="FlavorFiModel.CompanySiteAccountCrossLink" Width="1.5" PointX="13.5" PointY="50" />
+        <EntityTypeShape EntityType="FlavorFiModel.CompanySiteApplicationCrossLink" Width="1.5" PointX="8.25" PointY="48.5" />
+        <EntityTypeShape EntityType="FlavorFiModel.CompanySiteEmail" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FlavorFiModel.CompanySiteModuleCrossLink" Width="1.5" PointX="5.25" PointY="53" />
+        <EntityTypeShape EntityType="FlavorFiModel.CompanySiteSetting" Width="1.5" PointX="5.25" PointY="60.875" />
+        <EntityTypeShape EntityType="FlavorFiModel.Component" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FlavorFiModel.DatabaseSyncLog" Width="1.5" PointX="10.5" PointY="43.5" />
+        <EntityTypeShape EntityType="FlavorFiModel.ErrorLog" Width="1.5" PointX="7.5" PointY="36.875" />
+        <EntityTypeShape EntityType="FlavorFiModel.FacebookWebhookLog" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FlavorFiModel.Module" Width="1.5" PointX="3" PointY="58.875" />
+        <EntityTypeShape EntityType="FlavorFiModel.PasswordReset" Width="1.5" PointX="7.5" PointY="42.25" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyAddress" Width="1.5" PointX="7.5" PointY="62.375" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyCustomCollection" Width="1.5" PointX="8.25" PointY="77.25" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyCustomer" Width="1.5" PointX="5.25" PointY="72.5" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyGiftCard" Width="1.5" PointX="7.5" PointY="66.75" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyLocation" Width="1.5" PointX="5.25" PointY="68.125" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyMetafield" Width="1.5" PointX="10.5" PointY="60.375" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyOrder" Width="1.5" PointX="13.5" PointY="59.75" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyOrderLineItem" Width="1.5" PointX="18.75" PointY="56.375" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyOrderShippingLine" Width="1.5" PointX="15.75" PointY="57.625" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyOrderTransaction" Width="1.5" PointX="15.75" PointY="62.125" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyProduct" Width="1.5" PointX="5.25" PointY="56" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyProductVariant" Width="1.5" PointX="10.5" PointY="52.5" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyUser" Width="1.5" PointX="5.25" PointY="78.375" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyWebhook" Width="1.5" PointX="6" PointY="31" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyWebhookActivityLog" Width="1.5" PointX="10.5" PointY="49.125" />
+        <EntityTypeShape EntityType="FlavorFiModel.ShopifyWebhookLog" Width="1.5" PointX="8.25" PointY="52.5" />
+        <AssociationConnector Association="FlavorFiModel.FK_Account_Address" />
+        <AssociationConnector Association="FlavorFiModel.FK_Account_Company" />
+        <AssociationConnector Association="FlavorFiModel.FK_Account_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_AccountActivityLog_Account" />
+        <AssociationConnector Association="FlavorFiModel.FK_AccountRefreshToken_Account" />
+        <AssociationConnector Association="FlavorFiModel.FK_CompanySiteAccountCrossLink_Account" />
+        <AssociationConnector Association="FlavorFiModel.FK_DatabaseSyncLog_Account" />
+        <AssociationConnector Association="FlavorFiModel.FK_ErrorLog_Account" />
+        <AssociationConnector Association="FlavorFiModel.FK_PasswordReset_Account" />
+        <AssociationConnector Association="FlavorFiModel.FK_CompanySiteApplicationCrossLink_Application" />
+        <AssociationConnector Association="FlavorFiModel.FK_CompanySite_Company" />
+        <AssociationConnector Association="FlavorFiModel.FK_CompanySite_CompanySiteSetting" />
+        <AssociationConnector Association="FlavorFiModel.FK_CompanySiteAccountCrossLink_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_CompanySiteApplicationCrossLink_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_CompanySiteModuleCrossLink_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_DatabaseSyncLog_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyAddress_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyCustomer_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyGiftCard_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyLocation_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyMetafield_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrder_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderLineItem_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderShippingLine_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderTransaction_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyProduct_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyProductVariant_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyWebhookLog_CompanySite" />
+        <AssociationConnector Association="FlavorFiModel.FK_CompanySiteModuleCrossLink_Module" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyAddress_ShopifyCustomer" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyMetafield_ShopifyCustomCollection" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyGiftCard_ShopifyCustomer" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyMetafield_ShopifyCustomer" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrder_ShopifyCustomer" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyGiftCard_ShopifyOrder" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyGiftCard_ShopifyUser" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderTransaction_ShopifyGiftCard" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyMetafield_ShopifyProduct" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderLineItem_ShopifyOrder" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderShippingLine_ShopifyOrder" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderTransaction_ShopifyOrder" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderLineItem_ShopifyProduct" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyOrderLineItem_ShopifyProductVariant" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyProductVariant_ShopifyProduct" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyWebhookLog_ShopifyWebhook" />
+        <AssociationConnector Association="FlavorFiModel.FK_ShopifyWebhookActivityLog_ShopifyWebhookLog" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,37 @@
+﻿<div id="company-view">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-filled">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="media">
+                                <i class="pe pe-7s-user c-accent fa-3x"></i>
+                                <h2 class="m-t-xs m-b-none" data-bind="text: Company().Name()"></h2>
+                                <h5 data-bind="text: Company().Id()"></h5>
+                                <a class="btn btn-success" data-bind="click: EditCompany"><i class="fa fa-edit m-right-xs"></i> Edit Company Information</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <table class="table m-t-lg">
+                                <tbody>        
+                                    <tr>
+                                        <td class="c-white" data-bind="text: Company().AddressDisplay()"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="c-white" data-bind="text: Company().CityStateZipDisplay()"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="c-white">Since: <span data-bind="text: Company().DateCreated()"></span></td>
+                                    </tr>
+                                    <tr><td></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿<div id="company-edit" style="display:none">
+    <div class="row">
+        <form id="CompanyForm">
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name" data-bind="value: Company().Name" />
+                </div>
+                <div class="form-group">
+                    <input type="text" value="" class="form-control" placeholder="Address" data-bind="value: Company().Address1" />
+                </div>
+                <div class="form-group">
+                    <input type="text" value="" class="form-control" placeholder="Address 2" data-bind="value: Company().Address2" />
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    <input type="text" value="" class="form-control" placeholder="City" data-bind="value: Company().City" />
+                </div>
+                <div class="form-group">
+                    <input type="text" value="" class="form-control" placeholder="State" data-bind="value: Company().State" />
+                </div>
+                <div class="form-group">
+                    <input type="text" value="" class="form-control" placeholder="Zip Code" data-bind="value: Company().ZipCode" />
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-default" data-bind="click: SaveCompany">Save Company</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

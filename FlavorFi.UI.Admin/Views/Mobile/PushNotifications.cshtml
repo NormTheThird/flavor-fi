@@ -1,0 +1,114 @@
+﻿@Html.Partial("_PaginationTemplate")
+
+<div data-bind="with: CurrentVM">
+    <div id="PushNotificationPage" class="pt-10 ">
+        <div class="container well wait-container-wrapper">
+            <div class="wait-container row" data-bind="visible: IsLoading()">
+                <div class="col-xs-12 loading-img">
+                    <img src="/Content/img/loading.gif" alt="loading-img" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="text-center">Push Notifications</h1>
+                    <div data-bind="fadeTemplate: Content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="NotificationTableTemplate">
+    <div class="mb-20">
+        <a class="btn btn-default" data-bind="click: SendNotification">New Notification</a>
+    </div>
+    <div class=" table table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sent by</th>
+                    <th>Title</th>
+                    <th>Message</th>
+                    <th>Date Sent</th>
+                    <th></th>
+                    <th>Note</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: NotificationPaging().PaginatedArray()">
+                <tr class="push-details">
+                    <td><span data-bind="text: CreatedByName"></span></td>
+                    <td><span data-bind="text: Title"></span></td>
+                    <td><span data-bind="text: Message"></span></td>
+                    <td><span data-bind="text: DateCreated.ToShortDate(), attr: {title: DateCreated.ToDaysAgo() }"></span></td>
+                    <td><span class="btn btn-default" data-bind="click: $parent.SendNotification">Resend</span></td>
+                    <td class="pushNote" data-toggle="tooltip" data-placement="top" data-bind="attr: {title:Note}">View Note</td>
+                </tr>
+                <tr class="push-results collapse">
+                    <td class="active" colspan="12">
+                        <div class="results-wrapper">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th class="text-primary"><em>Device</em></th>
+                                        <th class="text-primary"><em>Payload</em></th>
+                                        <th class="text-primary"><em>Response</em></th>
+                                        <th class="text-primary"><em>Status</em></th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: Devices()">
+                                    <tr>
+                                        <td><span data-bind="text: Device"></span></td>
+                                        <td><span data-bind="text: Payload"></span></td>
+                                        <td><span data-bind="text: Response"></span></td>
+                                        <td>
+                                            <span class="push-success" data-bind="visible: IsSuccess()" style="color:#73AF55">
+                                                Success
+                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                                                    <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 " />
+                                                </svg>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="push-error" data-bind="visible: IsError()" style="color:#D06079">
+                                                Error
+                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                                                    <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3" />
+                                                    <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2" />
+                                                </svg>
+                                            </span>
+                                        </td>
+                                        <td><span data-bind="visible: !IsError() && !IsSuccess()">Pending</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/html" id="NotificationEditTemplate">
+    <div>
+        Title:
+        <input class="form-control" data-bind="value: Notification().Title" />
+        Message:
+        <input class="form-control" data-bind="value: Notification().Message" />
+        Note:
+        <input class="form-control" data-bind="value: Notification().Note" />
+        <div class="pull-right">
+            <a class="btn btn-default" data-bind="click: SaveNotification">Save</a>
+            <a class="btn btn-warning" data-bind="click: ShowTable">Cancel</a>
+        </div>
+    </div>
+</script>
+
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new PushNotificationViewModel());
+    </script>
+}

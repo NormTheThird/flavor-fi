@@ -1,0 +1,129 @@
+﻿<div id="company-sites-list">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-filled">
+                <div class="panel-heading">
+                    Company Sites
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Shopify Domain</th>
+                                <th>Webhook Url</th>
+                                <th>Public Api Key</th>
+                                <th>Date Created</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: CompanySites()">
+                            <tr>
+                                <td data-bind="text: Name" />
+                                <td data-bind="text: ShopifyDomain" />
+                                <td data-bind="text: ShopifyWebhookUrl" />
+                                <td data-bind="text: ShopifyApiPublicKey" />
+                                <td data-bind="text: DateCreated" />
+                                <td class="fa fa-toggle-on" data-bind="visible: IsActive()" />
+                                <td class="fa fa-toggle-off" data-bind="visible: !IsActive()" />
+                                <td><button class="btn btn-default" data-bind="click: $parent.EditCompanySite">EDIT</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="company-sites-edit" style="display:none;">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-filled">
+                <div class="panel-heading">
+                    Edit Company Site
+                </div>
+
+                <div class="panel-body">
+                    <form>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="CompanyName">Company Site Name</label>
+                                <input id="CompanyName" type="text" class="form-control" data-bind="textInput: CompanySite().Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ShopifyApiPublicKey">Shopify Api Public Key</label>
+                                <input id="ShopifyApiPublicKey" type="text" class="form-control" data-bind="textInput: CompanySite().ShopifyApiPublicKey" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="ShopifyUrl">Shopify Url</label>
+                                <input id="ShopifyUrl" type="text" class="form-control" data-bind="textInput: CompanySite().ShopifyUrl" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ShopifyApiSecretKey">Shopify Api Secret Key</label>
+                                <input id="ShopifyApiSecretKey" type="text" class="form-control" data-bind="textInput: CompanySite().ShopifyApiSecretKey" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="ShopifyDomain">Shopify Domain</label>
+                                <input id="ShopifyDomain" type="text" class="form-control" data-bind="textInput: CompanySite().ShopifyDomain" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ShopifySharedSecret">Shopify Shared Secret</label>
+                                <input id="ShopifySharedSecret" type="text" class="form-control" data-bind="textInput: CompanySite().ShopifySharedSecret" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <a class="btn btn-success" data-bind="click: SaveCompanySite">Save</a>
+                            <a class="btn btn-warning" data-bind="click: CancelCompanySiteEdit">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-filled">
+                <div class="panel-heading">
+                    Company Site Locations
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Shopify Id</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Zip Code</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: CompanySiteLocations()">
+                            <tr>
+                                <td data-bind="text: Id" />
+                                <td data-bind="text: Name" />
+                                <td data-bind="text: Address1" />
+                                <td data-bind="text: City" />
+                                <td data-bind="text: State" />
+                                <td data-bind="text: ZipCode" />
+                                <td class="fa fa-toggle-on" data-bind="visible: IsActive" />
+                                <td class="fa fa-toggle-off" data-bind="visible: !IsActive" />
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

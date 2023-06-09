@@ -1,0 +1,102 @@
+﻿<div class="container mt-10" data-bind="with: CurrentVM()">
+    <div class="well">
+        <h2>Company Management</h2>
+        <div class="form-group">
+            <a class="btn btn-default" data-bind="click: EditCompany">Add Company</a>
+        </div>
+        <!-- Add / edit Comapny -->
+        <div id="add-company" class="panel-collapse collapse">
+            <div class="row">
+                <form id="CompanyForm">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Name" data-bind="value: Company().Name" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" value="" class="form-control" placeholder="Address" data-bind="value: Company().Address1" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" value="" class="form-control" placeholder="Address 2" data-bind="value: Company().Address2" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" value="" class="form-control" placeholder="City" data-bind="value: Company().City" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" value="" class="form-control" placeholder="State" data-bind="value: Company().State" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" value="" class="form-control" placeholder="Zip Code" data-bind="value: Company().ZipCode" />
+                        </div>
+                        <div class="form-group">
+                            <a class="btn btn-default" data-bind="click: SaveCompany">Save Company</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- List of companies -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sites</th>
+                        <th>Name</th>
+                        <th>Address1</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>ZipCode</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: AllCompanies()">
+                    <tr>
+                        <td class="text-link" data-toggle="collapse" data-target="#site-table">1</td>
+                        <td data-bind="html: Name" />
+                        <td data-bind="html: Address1" />
+                        <td data-bind="html: City" />
+                        <td data-bind="html: State" />
+                        <td data-bind="html: ZipCode" />
+                        
+                        <td>Active</td>
+                        <td>
+                            <a data-bind="click: $parent.EditCompany">
+                                <span>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="site-table" class="panel-collapse collapse">
+                        <td class="text-link" data-toggle="collapse" data-target="#site-table">
+                            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                        </td>
+                        <td>Name Of Company</td>
+                        <td />
+                        <td />
+                        <td />
+                        <td />
+                        <td />
+                        <td>
+                            <a href="#">
+                                <span data-toggle="modal" data-target="#edit-site">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Site
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new CompanyViewModel());
+    </script>
+}

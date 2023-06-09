@@ -1,0 +1,64 @@
+﻿@using FlavorFi.UI.Admin.SecurityModels
+<aside class="navigation">
+    <nav data-bind="with: NavigationVM">
+        <ul class="nav luna-nav">
+            @if (CustomPrincipal.IsSystemAdmin())
+            {
+                <li onchange="ChangeCompanyId(this.value)">
+                    <a href="#companies" class="nav-category" data-toggle="collapse" aria-expanded="false" data-bind="text: Company().Name"></a>
+                    <ul id="companies" class="nav nav-second collapse" data-bind="foreach: Companies()">
+                        <li><a href="#" class="text-center text-accent" data-bind="text: Name, click: $parent.SelectCompany"></a></li>
+                    </ul>
+                </li>
+                <li class="nav-category" data-bind="text: CompanySite().Name"></li>
+            }
+            else if (!CustomPrincipal.IsAssignedToCompany())
+            {
+                <li><h2>No Assigned Company</h2></li>
+            }
+            else
+            {
+                <li class="nav-category" data-bind="text: CompanySite().Name"></li>
+            }
+            @if (CustomPrincipal.IsAssignedToCompany())
+            {
+                <!-- <li><a href="@Url.Action("Index", "Dashboard")">Dashboard</a></li> -->
+                <li><a href="@Url.Action("Index", "Company")">Company Info</a></li>
+                <li><a href="@Url.Action("WebhookActivityLogs", "Webhook")">Webhook Activity Logs</a></li>
+                <!-- <li>
+                    <a href="#reports" data-toggle="collapse" aria-expanded="false">
+                        Reports<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
+                    </a>
+                    <ul id="reports" class="nav nav-second collapse">
+                        <li><a href="@Url.Action("GiftCards", "Report")">Gift Cards</a></li>
+                    </ul>
+                </li> -->
+                <li><hr /></li>
+                <li class="nav-category">
+                    STANDALONE PAGES
+                </li>
+                <li><a target="_blank" href="@Url.Action("OrderPickup", "Standalone")">Order Pickup</a></li>
+                <li><a target="_blank" href="@Url.Action("QualityCheck", "Standalone")">Quality Check</a></li>
+            }
+            @if (CustomPrincipal.IsSystemAdmin())
+            {
+                <li><hr /></li>
+                <li class="nav-category">
+                    ADMIN
+                </li>
+                <li><a href="@Url.Action("Account", "Admin")">Accounts</a></li>
+                <li><a href="@Url.Action("Company", "Admin")">Companies</a></li>
+                <li><a href="@Url.Action("Module", "Admin")">Modules</a></li>
+                <li><a href="@Url.Action("Webhooks", "Webhook")">Webhooks</a></li>
+                <li>
+                    <a href="#datasync" data-toggle="collapse" aria-expanded="false">
+                        Data Sync<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
+                    </a>
+                    <ul id="datasync" class="nav nav-second collapse">
+                        <li><a href="@Url.Action("DatabaseSync", "DataSync")">Shopify to Database</a></li>
+                    </ul>
+                </li>
+            }
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,53 @@
+﻿<div id="gift-card-totals" class="panel panel-filled col-sm-8" data-bind="with: GiftCardTotalWidgetModel()">
+    <div class="loader">
+        <div class="loader-dots"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel-body">
+                <div class="row">
+                    <h4>Gift Card Totals for <span data-bind="text: CurrentYear"></span></h4>
+                    <small class="text-secondary">Last updated <span data-bind="text: LatestUploadDate"></span></small>
+                </div>
+                <div class="row m-t-md">
+                    <div class="col-md-6">
+                        <small class="stat-label">Total Gift Cards</small>
+                        <h4 class="m-t-xs" data-bind="text: GiftCardTotals().GiftCardTotalAmount"></h4>
+                    </div>
+                    <div class="col-md-6">
+                        <small class="stat-label">Remaining Total Balance</small>
+                        <h4 class="m-t-xs" data-bind="text: GiftCardTotals().RemainingTotalBalance"></h4>
+                    </div>
+                </div>
+                <div class="row m-t-sm">
+                    <div class="col-md-6">
+                        <small class="stat-label">Gift Cards From Returns</small>
+                        <h4 class="m-t-xs" data-bind="text: GiftCardTotals().GiftCardAmountFromReturns"></h4>
+                    </div>
+                    <div class="col-md-6">
+                        <small class="stat-label">Remaining Return Balance</small>
+                        <h4 class="m-t-xs" data-bind="text: GiftCardTotals().RemainingReturnBalance"></h4>
+                    </div>
+                </div>
+                <div class="row m-t-md text-center">
+                    <button class="btn btn-accent btn-sm" data-bind="click: GetLastYear">Last Year</button>
+                    <button class="btn btn-accent btn-sm" data-bind="click: GetThisYear">This Year</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel-body">
+                <div class="text-center slight">
+                </div>
+
+                <div class="flot-chart m-t-md" style="height: 200px;">
+                    <div id="GiftCardTotalsChart" class="flot-chart-content"></div>
+                </div>
+                
+                <div id="legendholder" class="m-t-sm">Legend Container</div>
+            </div>
+        </div>
+
+    </div>
+</div>

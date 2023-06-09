@@ -1,0 +1,1944 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82CDCF2A-BF54-4B32-9B4B-6F4DA5A6A7B1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Shopify.Admin.Console</RootNamespace>
+    <AssemblyName>Shopify.Admin.Console</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.CSharp.HTTP.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=79219bf4e5ecaaca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.CSharp.HTTP.Client.3.0.0\lib\SendGrid.CSharp.HTTP.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.1.3.0, Culture=neutral, PublicKeyToken=55aa52d3c3c0d2b2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.1.3\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGridMail, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.Net40.5.1.0.0\lib\net40\SendGridMail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ShopifySharp, Version=3.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ShopifySharp.3.5.1.0\lib\net45\ShopifySharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\affiliatepluslevel_tier.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliatepluslevel_transaction.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliatepluspayment_bank.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliatepluspayment_bankaccount.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliatepluspayment_moneybooker.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliatepluspayment_offline.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplusprogram.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplusprogram_account.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplusprogram_category.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplusprogram_joined.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplusprogram_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplusprogram_transaction.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplusprogram_value.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplusstatistic.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_account.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_account_value.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_action.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_banner.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_banner_value.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_coupon.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_credit.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_payment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_payment_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_payment_paypal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_payment_verify.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_referer.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_tracking.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliateplus_transaction.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\affiliate_host.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\am_feed_field.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\am_feed_field_300_backup.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\am_feed_profile.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\am_feed_profile_300_backup.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\am_feed_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\am_feed_template_300_backup.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_arep_aggregation.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_arep_options.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_arep_sku_relevance.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_customer_note.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_department.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_department_agent.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_department_agent_link.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_department_notification.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_department_permission.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_gateway.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_gateway_mail.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_gateway_mail_attachment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_gateway_mail_reject_pattern.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket_history_additional.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket_history_attachment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket_message.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket_priority.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket_priority_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket_status.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_hdu3_ticket_status_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\aw_lib_logger.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_backup_files.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_email_queue.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_email_unsent.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_payment_installments.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_reports.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_report_daily__totals.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_report_orders.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_report_sales__totals_by__user.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_catalogtrash.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_customertrash.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_customprice.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_debug.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_discounts.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_notifications.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_orders.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_pin_codes.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_quotes.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_shifts.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_shift_activities.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\bakerloo_restful_shift_movements.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_flat_store_1.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_flat_store_2.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_flat_store_3.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_flat_1.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_flat_2.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_flat_3.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_email_queue.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_email_queue_recipients.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\crimson_pickqc_item_status.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\crimson_pickqc_item_status_log.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\crimson_pickqc_override_reasons.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\crimson_pickqc_status.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_support_backup.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_support_backup_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_support_sysreport.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\giftcard_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\giftvoucher.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\giftvoucher_credit.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\giftvoucher_credit_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\giftvoucher_customer_voucher.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\giftvoucher_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\giftvoucher_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\giftvoucher_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\host_order_assoc.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\krypson_disabled_products.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\krypson_productinventory.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\krypson_reports.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\levementum_catalog_stock_log.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\magenotification.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\magenotification_extension_feedback.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\magenotification_extension_feedbackmessage.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\magenotification_license.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\magenotification_log.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\merchandiser_category_values.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\merchandiser_vmbuild.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_emaildesign_design.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_emaildesign_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_emailreport_aggregated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_emailreport_click.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_emailreport_open.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_emailreport_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_emailreport_review.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_emailsmtp_mail.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_email_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_email_event_trigger.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_email_queue.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_email_rule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_email_trigger.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_email_trigger_chain.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_email_unsubscription.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_mstcore_attachment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_mstcore_logger.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\m_mstcore_urlrewrite.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\outofstocksubscription_info.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\permission_block.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\permission_variable.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\productstat.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\seosuite_report_category.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\seosuite_report_cms.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\seosuite_report_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\seosuite_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\seosuite_template_store.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\springbot_actions.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\springbot_cron_count.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\springbot_cron_queue.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\springbot_redirect.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\springbot_redirect_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\springbot_trackable.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tm_orderattachment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\warehouse_depot.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\warehouse_movtype.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\warehouse_stock_movements.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\warehouse_stock_movements_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Models\GiftCardModels.cs" />
+    <Compile Include="Models\_BaseModels.cs" />
+    <Compile Include="RequestAndResponses\GiftCardRequestAndResponses.cs" />
+    <Compile Include="RequestAndResponses\_BaseRequestAndResponse.cs" />
+    <Compile Include="Services\CollectService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\CustomCollectionService.cs" />
+    <Compile Include="Services\GiftCardService.cs" />
+    <Compile Include="Services\MetaFieldService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Data\adminnotification_inbox.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\admin_assert.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\admin_role.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\admin_rule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\admin_user.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\api2_acl_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\api2_acl_role.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\api2_acl_rule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\api_assert.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\api_role.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\api_rule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\api_session.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\api_user.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\authnetcim_card_exclude.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\barcode_label_list.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\captcha_log.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cataloginventory_stock.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cataloginventory_stock_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cataloginventory_stock_status.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cataloginventory_stock_status_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cataloginventory_stock_status_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cataloginventory_stock_status_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogrule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogrule_affected_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogrule_group_website.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogrule_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogrule_product_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogsearch_fulltext.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogsearch_fulltext_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogsearch_query.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogsearch_recommendations.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalogsearch_result.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_anc_categs_index_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_anc_categs_index_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_anc_products_index_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_anc_products_index_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_entity_datetime.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_entity_decimal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_entity_int.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_entity_text.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_entity_url_key.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_entity_varchar.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_flat_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_product_cat_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_product_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_product_index_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_product_index_enbl_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_product_index_enbl_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_product_index_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_category_product_index_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_compare_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_eav_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_bundle_option.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_bundle_option_value.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_bundle_price_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_bundle_selection.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_bundle_selection_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_bundle_stock_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_enabled_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_datetime.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_decimal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_gallery.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_group_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_int.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_media_gallery.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_media_gallery_value.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_text.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_tier_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_url_key.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_entity_varchar.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_flat_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_eav.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_eav_decimal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_eav_decimal_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_eav_decimal_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_eav_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_eav_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_group_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_bundle_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_bundle_opt_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_bundle_opt_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_bundle_sel_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_bundle_sel_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_bundle_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_cfg_opt_agr_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_cfg_opt_agr_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_cfg_opt_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_cfg_opt_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_downlod_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_downlod_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_final_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_final_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_opt_agr_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_opt_agr_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_opt_idx.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_opt_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_price_tmp.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_tier_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_index_website.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_link.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_link_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_link_attribute_decimal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_link_attribute_int.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_link_attribute_varchar.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_link_type.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_option.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_option_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_option_title.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_option_type_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_option_type_title.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_option_type_value.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_relation.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_super_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_super_attribute_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_super_attribute_pricing.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_super_link.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\catalog_product_website.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\checkout_agreement.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cms_block.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cms_page.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_cache.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_cache_option.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_cache_tag.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_config_data.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_email_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_flag.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_layout_link.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_layout_update.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_resource.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_session.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_store.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_store_group.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_translate.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_url_rewrite.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_variable.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_variable_value.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\core_website.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\coupon_aggregated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\coupon_aggregated_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\coupon_aggregated_updated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cron_schedule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_address_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_address_entity_datetime.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_address_entity_decimal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_address_entity_int.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_address_entity_text.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_address_entity_varchar.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_eav_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_eav_attribute_website.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_entity_datetime.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_entity_decimal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_entity_int.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_entity_text.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_entity_varchar.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_form_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\customer_group.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dataflow_batch.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dataflow_batch_export.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dataflow_batch_import.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dataflow_import_data.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dataflow_profile.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dataflow_profile_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\dataflow_session.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\design_change.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\directory_country.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\directory_country_format.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\directory_country_region.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\directory_country_region_name.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\directory_currency_rate.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\downloadable_link.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\downloadable_link_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\downloadable_link_purchased.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\downloadable_link_purchased_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\downloadable_link_title.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\downloadable_sample.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\downloadable_sample_title.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_attribute_group.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_attribute_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_attribute_option.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_attribute_option_value.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_attribute_set.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity_datetime.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity_decimal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity_int.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity_store.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity_text.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity_type.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_entity_varchar.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_form_element.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_form_fieldset.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_form_fieldset_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\eav_form_type.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_admin_passwords.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_banner.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_banner_content.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_catalogevent_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_catalogevent_event_image.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_catalogpermissions.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_catalogpermissions_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_catalogpermissions_index_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_catalog_category_rewrite.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_catalog_product_rewrite.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_cms_hierarchy_lock.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_cms_hierarchy_metadata.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_cms_hierarchy_node.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_cms_increment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_cms_page_revision.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_cms_page_version.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customerbalance.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customerbalance_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customersegment_customer.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customersegment_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customersegment_segment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customer_sales_flat_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customer_sales_flat_order_address.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customer_sales_flat_quote.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_customer_sales_flat_quote_address.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftcardaccount.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftcardaccount_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftcardaccount_pool.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftcard_amount.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftregistry_data.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftregistry_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftregistry_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftregistry_item_option.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftregistry_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftregistry_person.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftregistry_type.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftregistry_type_info.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftwrapping.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_giftwrapping_store_attributes.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_index_multiplier.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_invitation.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_invitation_status_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_invitation_track.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_logging_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_logging_event_changes.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_mview_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_mview_metadata.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_mview_metadata_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_mview_metadata_group.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_mview_subscriber.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_reminder_rule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_reminder_rule_coupon.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_reminder_rule_log.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_reminder_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_reward.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_reward_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_reward_rate.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_reward_salesrule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_grid.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_eav_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_eav_attribute_website.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_entity_datetime.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_entity_decimal.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_entity_int.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_entity_text.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_entity_varchar.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_item_form_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_shipping_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_rma_status_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_sales_creditmemo_grid_archive.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_sales_invoice_grid_archive.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_sales_order_grid_archive.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_sales_shipment_grid_archive.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_scheduled_operations.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_staging.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_staging_action.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_staging_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_staging_log.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule_index_crosssell.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule_index_crosssell_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule_index_related.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule_index_related_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule_index_upsell.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule_index_upsell_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_targetrule_product.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_url_rewrite.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_url_rewrite_category_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_url_rewrite_product_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_url_rewrite_redirect.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_url_rewrite_redirect_cl.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\enterprise_url_rewrite_redirect_rewrite.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\etheme_slideshow_sliders.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\etheme_slideshow_slides.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FillyFlairModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FillyFlairModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FillyFlairModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FillyFlairModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FillyFlairModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\gift_message.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\importexport_importdata.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\index_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\index_process.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\index_process_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\levementum_migration_customer_import_status.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\levementum_migration_product_import_status.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_customer.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_quote.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_summary.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_summary_type.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_url.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_url_info.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_visitor.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_visitor_info.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\log_visitor_online.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\moogento_pickpack_flagautoaction.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\moogento_pickpack_printedtime.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\newsletter_problem.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\newsletter_queue.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\newsletter_queue_link.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\newsletter_subscriber.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\newsletter_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\oauth_consumer.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\oauth_nonce.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\oauth_token.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\paradoxlabs_stored_card.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\paypal_cert.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\paypal_payment_transaction.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\paypal_settlement_report.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\paypal_settlement_report_row.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\persistent_session.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\poll.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\poll_answer.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\poll_vote.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\product_alert_price.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\product_alert_stock.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\rating.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\rating_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\rating_option.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\rating_option_vote.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\rating_option_vote_aggregated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\rating_title.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\report_compared_product_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\report_event.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\report_event_types.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\report_viewed_product_aggregated_daily.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\report_viewed_product_aggregated_monthly.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\report_viewed_product_aggregated_yearly.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\report_viewed_product_index.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\review.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\review_detail.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\review_entity.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\review_entity_summary.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\review_status.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\salesrule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\salesrule_coupon.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\salesrule_coupon_usage.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\salesrule_customer.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\salesrule_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\salesrule_product_attribute.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_bestsellers_aggregated_daily.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_bestsellers_aggregated_monthly.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_bestsellers_aggregated_yearly.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_billing_agreement.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_creditmemo.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_creditmemo_comment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_creditmemo_grid.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_creditmemo_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_invoice.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_invoice_comment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_invoice_grid.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_invoice_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_order_address.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_order_grid.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_order_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_order_payment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_order_status_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_quote.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_quote_address.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_quote_address_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_quote_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_quote_item_option.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_quote_payment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_quote_shipping_rate.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_shipment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_shipment_comment.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_shipment_grid.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_shipment_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_flat_shipment_track.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_invoiced_aggregated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_invoiced_aggregated_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_order_aggregated_created.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_order_aggregated_updated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_order_status.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_order_status_label.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_order_status_state.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_order_tax.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_order_tax_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_payment_transaction.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_recurring_profile.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_recurring_profile_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_refunded_aggregated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_refunded_aggregated_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_shipping_aggregated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sales_shipping_aggregated_order.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sendfriend_log.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\shipping_tablerate.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sitemap.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tag.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tag_properties.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tag_relation.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tag_summary.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tax_calculation.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tax_calculation_rate.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tax_calculation_rate_title.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tax_calculation_rule.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tax_class.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tax_order_aggregated_created.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tax_order_aggregated_updated.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tm_core_module.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\weee_discount.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\weee_tax.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\widget.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\widget_instance.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\widget_instance_page.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\wishlist.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\wishlist_item.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\wishlist_item_option.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\wordpress_association.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\wordpress_association_type.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\xmlconnect_application.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\xmlconnect_config_data.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\xmlconnect_history.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\xmlconnect_images.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\xmlconnect_notification_template.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\xmlconnect_queue.cs">
+      <DependentUpon>FillyFlairModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\FillyFlairEnums.cs" />
+    <Compile Include="Models\FillyFlair.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ProductVariantService.cs" />
+    <Compile Include="Services\RedirectService.cs" />
+    <Compile Include="Services\_BaseService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Data\FillyFlairModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FillyFlairModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\FillyFlairModel.edmx.diagram">
+      <DependentUpon>FillyFlairModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\FillyFlairModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FillyFlairModel.edmx</DependentUpon>
+      <LastGenOutput>FillyFlairModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\FillyFlairModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FillyFlairModel.edmx</DependentUpon>
+      <LastGenOutput>FillyFlairModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

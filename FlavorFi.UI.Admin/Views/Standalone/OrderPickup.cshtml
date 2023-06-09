@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNone.cshtml";
+}
+
+    <div id="order-pickup" data-bind="with:CurrentVM">
+
+
+        <div class="row">
+            <h2 class="panel-heading text-center">Order Pickup Screen</h2>
+        </div>
+
+        <div id="orderpickup-list">
+            <div class="col-md-12">
+                <div class="panel panel-filled">
+                    <div class="panel-heading">
+                        Orders for pickup
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+
+                            <table id="orderpickup-table" class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Database Order Id (admin use)</th>
+                                        <th>Order Number</th>
+                                        <th>Order Date</th>
+                                        <th>Name</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="dataTablesForEach: { data: OrdersForPickup, dataTableOptions: { lengthMenu: [[10, 25, 50, -1], [10, 25, 50, 'All']] } }">
+                                    <tr>
+                                        <td data-bind="html: ShopifyOrderId" />
+                                        <td data-bind="html: OrderNumber" />
+                                        <td data-bind="html: OrderDate" />
+                                        <td data-bind="html: FullName" />
+                                        <td>
+                                            <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal" data-bind="click: $parent.SetOrderForPickup">Pickup</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-body">
+                <div class="m-t-md">
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h4 class="modal-title">Order Number</h4>
+                                    <p><span data-bind="html: OrderForPickup().OrderNumber"></span></p>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-success btn-block" data-dismiss="modal" data-bind="click: MarkAsPickedUp">Mark As Picked Up</button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-accent" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new OrderPickupViewModel());
+        MainVM.CurrentVM().Load();
+    </script>
+}

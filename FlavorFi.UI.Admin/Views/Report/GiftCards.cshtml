@@ -1,0 +1,156 @@
+﻿@Html.Partial("_PaginationTemplate")
+
+<div data-bind="with: CurrentVM">
+    <div id="ReportPage" class="pt-10">
+        <div class="container">
+
+            <h1 class="text-center">Gift Card Detail Report</h1>
+            <div class="row pt-10">
+                <div class="form-group col-sm-6 col-sm-offset-3">
+                    <label for="input1" class="form-label">Select date range for gift card report</label>
+                    <div class="input-daterange input-group" id="datepicker">
+                        <input type="text" class="input-lg form-control" placeholder="Start Date" name="start" data-provide="datepicker" data-bind="value: StartDate.ToShortDate()" />
+                        <span class="input-group-addon">to</span>
+                        <input type="text" class="input-lg form-control" placeholder="End Date" name="end" data-provide="datepicker" data-bind="value: EndDate.ToShortDate()" />
+                    </div>
+                </div>
+
+                <div class="form-inline text-center col-sm-6 col-sm-offset-3">
+                    <div class="form-group" id="form-dates">
+                        <a href="#" class="text-secondary" data-bind="click: ThisMonth">this month </a>&nbsp;|&nbsp;
+                        <a href="#" class="text-secondary" data-bind="click: LastMonth">last month</a>&nbsp;|&nbsp;
+                        <a href="#" class="text-secondary" data-bind="click: ThisYear">this year</a>
+                    </div>
+                </div>
+
+                <div class="form-inline text-center m-t-sm col-sm-4 col-sm-offset-4 pt-10">
+                    <input type="submit" class="btn btn-accent" value="Run Report" data-bind="click: GetReportData" />
+                    <input type="submit" class="btn btn-accent" value="Export Report" data-bind="click: ExportReport" />
+                </div>
+            </div>
+
+            <div class="row pt-25" data-bind="visible: !IsLoading() && ReportData().length">
+                <form>
+                    <div class="col-sm-3 col-sm-offset-2">
+                        <label class="form-label">Sort report by issuer type</label>
+                        <br />
+                        <select class="form-control" data-bind="value: IssuerFilter">
+                            <option value="all">All</option>
+                            <option value="internal">Internal</option>
+                            <option value="external">External</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label class="form-label">Search by Last 4, Issuer, or Customer</label>
+                        <br />
+                        <input class="form-control" type="text" data-bind="value: SearchText, valueUpdate: 'afterkeydown'" />
+                    </div>
+                </form>
+
+                <div class="col-sm-2">
+                    <ul class="list-unstyled pull-right">
+                        <li>
+                            <label>Results per page</label>
+                            <select class="form-control" data-bind="value: ReportPaging().PerPage">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="75">75</option>
+                                <option value="100">100</option>
+                                @*<option data-bind="value: Sorted().length">All</option>*@
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="row m-t-lg">
+                    <div class="form-group text-center">
+                        <h4 class="col-md-4">
+                            Total Amount Issued For Date Range<br /><span class="text-success" data-bind="text: GiftCardTotalAmountIssued.ToAmount()"></span>
+                        </h4>
+                        <h4 class="col-md-4">
+                            Total Amount Used For Date Range<br /><span class="text-success" data-bind="text: GiftCardTotalAmountUsed.ToAmount()"></span>
+                        </h4>
+                        <h4 class="col-md-4">
+                            Total Liability To Date<br /><span class="text-success" data-bind="text: GiftCardTotalLiability.ToAmount()"></span>
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="row m-t-lg">
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+
+                                                <h6>GC Number</h6>
+                                        </th>
+                                        <th>
+                                                <h6>Balance</h6>
+                
+                                        </th>
+                                        <th>
+                                                <h6>Issued By</h6>
+                                        </th>
+                                        <th>
+                                                <h6>Customer</h6>
+                                        </th>
+                                        <th>
+                                                <h6>Creation Date</h6>
+ 
+                                        </th>
+                                        <th>
+                                            <a><h6>Notes</h6></a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>****-1125</td>
+                                        <td>$25 of $50</td>
+                                        <td>Roger Jepsen</td>
+                                        <td>John Doe</td>
+                                        <td>12/30/2018</td>
+                                        <td>Notes, Notes, Notes</td>
+                                        @*<td>
+                                            <span data-bind="text: Balance.ToAmount()"></span> of
+                                            <span data-bind="text: InitialValue.ToAmount()"></span>
+                                        </td>
+                                        <td data-bind="html: IssuedBy"></td>
+                                        <td data-bind="html: Customer"></td>
+                                        <td data-bind="html: DateCreated.ToShortDate()"></td>
+                                        <td class="notes">
+                                            <div class="note" data-bind="visible: NoteVisible()">
+                                                <div class="note-text">
+                                                    <i class="fa fa-times-circle-o pull-right" aria-hidden="true" data-bind="click: ShowNote"></i>
+                                                    <p data-bind="text: Note"></p>
+                                                </div>
+                                            </div>
+
+                                            <span class="btn btn-default" data-bind="visible: Note(), click: ShowNote"> See Note</span>
+                                        </td>*@
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind="template: {name: 'PaginationTemplate', data: ReportPaging }"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new GiftCardsReportViewModel());
+    </script>
+}

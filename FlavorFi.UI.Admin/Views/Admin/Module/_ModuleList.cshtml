@@ -1,0 +1,50 @@
+﻿<div id="moduleadmin-list" style="display:none">
+    <div class="col-md-12">
+        <div class="panel panel-filled">
+            <div class="panel-heading">
+                Modules
+            </div>
+            <div class="panel-body">
+                <div class="panel-body">
+                    <div class="table-responsive">
+
+                        <table id="module-account-table" class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>DisplayName</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="dataTablesForEach: {
+                                data: Modules,
+                                dataTableOptions: {
+                                    @*dom: '<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp,*@
+                                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, 'All']],
+                                    buttons: [
+                                        { extend: 'csv', title: 'ExampleFile', className: 'btn-sm' },
+                                        { extend: 'pdf', title: 'ExampleFile', className: 'btn-sm' },
+                                        { extend: 'print', className: 'btn-sm' } ] } }">
+                                <tr>
+                                    <td data-bind="html: Name" />
+                                    <td data-bind="html: DisplayName" />
+                                    <td data-bind="html: Description" />
+                                    <td>
+                                        <button class="btn btn-success" data-bind="click: $parent.ChangeModuleStatus, visible: IsActive()">Active</button>
+                                        <button class="btn btn-warning" data-bind="click: $parent.ChangeModuleStatus, visible: !IsActive()">Not Active</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-default" data-bind="click: $parent.EditCompany">EDIT</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

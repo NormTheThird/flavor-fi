@@ -1,0 +1,58 @@
+﻿<div class="container" data-bind="with: CurrentVM">
+    <div class="row mt-10">
+        <div class="col-sm-4">
+            <div class="well sync-panel">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h4 class="text-uppercase">Sync Products</h4>
+                        <h4 data-bind="text: ProductSyncStatus"></h4>
+                        <input class="btn btn-default" type="button" value="Sync Products" data-bind="click: SynchronizeDatabaseProducts, visible: !IsProductSyncVisible()" />
+                        <!--CANCEL BUTTON-->
+                        <!--<input class="btn btn-danger" type="button" value="Cancel Sync" />-->
+                    </div>
+                    <div data-bind="progressBar: { value : ProductSyncPercentage }, visible: IsProductSyncVisible()"></div>
+                    <div class="col-xs-6">
+                        <div class="progress sync">
+                            <span class="progress-left">
+                                <span class="progress-bar" style="transform: rotate(140deg);"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar" style="transform: rotate(180deg);"></span>
+                            </span>
+                            <div class="progress-value">90%</div>
+                        </div>
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                <p class="pt-10 mg-0 text-center">Please be patient. This may take awhile...</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well sync-panel">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h4 class="text-uppercase">Sync Orders</h4>
+                        <h4 data-bind="text: OrderSyncStatus"></h4>
+                        <input class="btn btn-default" type="button" value="Sync Orders" data-bind="click: SynchronizeDatabaseOrders, visible: !IsOrderSyncVisible()" />
+                        <!--CANCEL BUTTON-->
+                        <!--<input class="btn btn-danger" type="button" value="Cancel Sync" />-->
+                    </div>
+                    <div data-bind="progressBar: { value : OrderSyncPercentage }, visible: IsOrderSyncVisible()"></div>
+                    <div class="col-xs-6">
+                        <div class="progress sync">
+                            <span class="progress-left">
+                                <span class="progress-bar" style="transform: rotate(140deg);"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar" style="transform: rotate(180deg);"></span>
+                            </span>
+                            <div class="progress-value">90%</div>
+                        </div>
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                <p class="pt-10 mg-0 text-center">Please be patient. This may take awhile...</p>
+            </div>
+        </div>
+    </div>
+</div>

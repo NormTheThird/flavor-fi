@@ -1,0 +1,13 @@
+﻿<div data-bind="with: CurrentVM()">
+
+    @Html.Partial("Module/_ModuleList")
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new ModuleAdminViewModel());
+        MainVM.CurrentVM().Load();
+    </script>
+}

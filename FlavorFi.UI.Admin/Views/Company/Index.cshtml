@@ -1,0 +1,14 @@
+﻿<div data-bind="with: CurrentVM()">
+
+    @Html.Partial("_CompanyView")
+    @Html.Partial("_CompanyEdit")
+    @Html.Partial("_CompanySites")
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        MainVM.CurrentVM(new CompanyViewModel());
+    </script>
+}

@@ -1,0 +1,26 @@
+﻿# git ignore file
+
+/.vs
+/packages
+
+/FlavorFi.API.Facebook/bin
+/FlavorFi.API.Facebook/obj
+/FlavorFi.API.Shopify/bin
+/FlavorFi.API.Shopify/obj
+/FlavorFi.Common/bin
+/FlavorFi.Common/obj
+/FlavorFi.Console/bin
+/FlavorFi.Console/obj
+/FlavorFi.Data/bin
+/FlavorFi.Data/obj
+/FlavorFi.Services/bin
+/FlavorFi.Services/obj
+/FlavorFi.Test.Services/bin
+/FlavorFi.Test.Services/obj
+/FlavorFi.UI.Admin/bin
+/FlavorFi.UI.Admin/obj
+/FlavorFi.WebJob.DataSync/bin
+/FlavorFi.WebJob.DataSync/obj
+/FlavorFi.WebJob.Mobile/bin
+/FlavorFi.WebJob.Mobile/obj
+

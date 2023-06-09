@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Flavor Fi">
+    <meta name="author" content="Flavor Mob">
+    <title>Shopify Management Tool</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+    <link rel="stylesheet" href="~/Content/plugins/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/plugins/animate.css/animate.css" />
+    <link rel="stylesheet" href="~/Content/plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/plugins/datatables/datatables.min.css" />
+    <link rel="stylesheet" href="~/Content/plugins/toastr/toastr.min.css" />
+    <link rel="stylesheet" href="~/Content/css/pe-icons/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="~/Content/css/pe-icons/helper.css" />
+    <link rel="stylesheet" href="~/Content/css/stroke-icons/style.css" />
+    <link rel="stylesheet" href="~/Content/css/style.css">
+</head>
+<body>
+    <!-- Wrapper-->
+    <div class="wrapper">
+        @Html.Partial("_LayoutHeader")
+        @Html.Partial("_LayoutNavagation")
+        <!-- Main Content -->
+        <section class="content">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </section>
+    </div>
+    <script src="~/Content/plugins/jquery/jquery.js"></script>
+    <script src="~/Content/plugins/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/Content/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/plugins/notify/notify.min.js"></script>
+    <script src="~/Content/plugins/pacejs/pace.min.js"></script>
+    <script src="~/Content/plugins/knockout/knockout.3.4.2.min.js"></script>
+    <script src="~/Content/plugins/moment/moment.js"></script>
+
+    @Scripts.Render("~/bundles/view_models")
+    <script src="~/Content/plugins/flot/jquery.flot.min.js"></script>
+    <script src="~/Content/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="~/Content/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="~/Content/plugins/flot/jquery.flot.time.min.js"></script>
+
+    <script src="/Content/plugins/datatables/datatables.min.js"></script>
+    <script type="text/javascript">
+        var MainVM = new MainViewModel(true);
+        ko.applyBindings(MainVM);
+    </script>
+    @RenderSection("scripts", false)
+</body>
+</html>

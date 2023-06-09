@@ -1,0 +1,15 @@
+﻿<nav class="navbar navbar-static-top">
+    <div class="navbar-header">
+        <a class="navbar-brand text-white" href="@Url.Action("Index","Dashboard")"><span class="bold text-accent">FM</span> Flavor Fi</a>
+        <ul class="nav navbar-nav navbar-right mg-0">
+            <li class="dropdown pr-10">
+                <a class="dropdown-toggle waves-effect text-white pull-right" data-toggle="dropdown" href="#">@User.Identity.Name<span class="caret"></span></a>
+                <ul class="dropdown-menu pr-10">
+                    @*<li><a href="#"><span class="glyphicon glyphicon-user"></span> Account Settings</a></li>*@
+                    <li><a href="@Url.Action("LogOut","Account")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <li class="hidden-sm hidden-md hidden-lg"><a data-toggle="collapse" data-target="#sidebar-nav">Admin Panel</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

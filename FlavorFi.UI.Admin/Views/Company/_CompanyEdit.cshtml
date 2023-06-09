@@ -1,0 +1,50 @@
+﻿<div id="company-edit" style="display:none">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-filled">
+                <div class="panel-heading">
+                    Edit Company Information
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="CompanyName">Company Name</label>
+                                <input id="CompanyName" type="text" class="form-control" data-bind="textInput: Company().Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="City">City</label>
+                                <input id="City" type="text" class="form-control" data-bind="textInput: Company().City" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Address1">Address 1</label>
+                                <input id="Address1" type="text" class="form-control" data-bind="textInput: Company().Address1" />
+                            </div>
+                            <div class="form-group">
+                                <label for="State">Username4</label>
+                                <input id="State" type="text" class="form-control" data-bind="textInput: Company().State" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Address2">Address 2</label>
+                                <input id="Address2" type="text" class="form-control" data-bind="textInput: Company().Address2" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ZipCode">Zip Code</label>
+                                <input id="ZipCode" type="text" class="form-control" data-bind="textInput: Company().ZipCode" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <a class="btn btn-success" data-bind="click: SaveCompany"><i class="fa fa-edit m-right-xs"></i>Save</a>
+                            <a class="btn btn-warning" data-bind="click: CancelCompanyEdit"><i class="fa fa-edit m-right-xs"></i>Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

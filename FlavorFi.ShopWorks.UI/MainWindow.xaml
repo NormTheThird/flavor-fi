@@ -1,0 +1,29 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="FlavorFi.ShopWorks.UI.MainWindow"
+        mc:Ignorable="d"
+        Title="Flavor Fi" 
+        Height="200" 
+        Width="400"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Style="{StaticResource MainWindowStyle}">
+
+    <DockPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+
+            <Label Style="{StaticResource LabelStyle}" Content="Enter the product number to sync."/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding PartNumber}" Width="100" Margin="10"/>
+                <Button Style="{StaticResource ButtonStyle}" Command="{Binding ApplicationCommand}" CommandParameter="SYNC" Content="Sync Product" Width="100" Margin="10"/>
+            </StackPanel>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Message}" TextWrapping="Wrap"/>
+            
+        </StackPanel>
+
+    </DockPanel>
+</Window>

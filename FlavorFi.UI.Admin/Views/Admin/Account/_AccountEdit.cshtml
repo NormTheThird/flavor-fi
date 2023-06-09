@@ -1,0 +1,115 @@
+﻿<div id="accountadmin-edit" class="row" style="display:none">
+    <div class="tabs-container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">Account Settings</a></li>
+        </ul>
+        <div class="tab-content">
+            <!-- Account Settings -->
+            <div id="tab-1" class="tab-pane active">
+                <div class="panel-body">
+                    <div class="tab-pane active" id="settings">
+                        <form role="form">
+
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="FirstName">First Name</label>
+                                    <input id="FirstName" class="form-control" type="text" name="FirstName" data-bind="value: Account().FirstName" />
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="LastName">Last Name</label>
+                                    <input id="LastName" class="form-control" type="text" name="LastName" data-bind="value: Account().LastName" />
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="Email">Email</label>
+                                    <input id="Email" class="form-control" type="text" name="Email" readonly data-bind="value: Account().Email" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="Address1">Address 1</label>
+                                    <input id="Address1" class="form-control" type="text" name="Address1" data-bind="value: Account().Address().Address1" />
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="Address2">Address 2</label>
+                                    <input id="Address2" class="form-control" type="text" name="Address2" data-bind="value: Account().Address().Address2" />
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="PhoneNumber">Phone Number</label>
+                                    <input id="PhoneNumber" class="form-control" type="text" name="PhoneNumber" data-bind="value: Account().PhoneNumber.PhoneMask(), valueUpdate: 'afterkeydown'" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="City">City</label>
+                                    <input id="City" class="form-control" type="text" name="City" data-bind="value: Account().Address().City" />
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="State">State</label>
+                                    <select id="State" class="form-control" name="State" autocomplete="address-level1" data-bind="options: BaseModel.States, optionsValue:'Name', optionsText: 'Name', value: Account().Address().State"></select>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="ZipCode">ZipCode</label>
+                                    <input id="ZipCode" class="form-control" type="text" name="ZipCode" data-bind="value: Account().Address().ZipCode" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-2">
+                                    <label for="Latitude">Latitude</label>
+                                    <input id="Latitude" disabled class="form-control" type="text" name="Latitude" data-bind="value: Account().Address().Latitude" />
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label for="Longitude">Longitude</label>
+                                    <input id="Longitude" disabled class="form-control" type="text" name="Longitude" data-bind="value: Account().Address().Longitude" />
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="AllowedOrigin">Allowed Origin</label>
+                                    <input id="AllowedOrigin" class="form-control" type="text" name="AllowedOrigin" data-bind="value: Account().AllowedOrigin" />
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label for="RefreshLifeInMin">Refresh Token Min.</label>
+                                    <input id="RefreshLifeInMin" class="form-control" type="text" name="RefreshLifeInMin" data-bind="value: Account().RefreshTokenLifeTimeMinutes" />
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label for="DateOfBirth">Date Of Birth mm/dd/yyyy</label>
+                                    <input id="DateOfBirth" class="form-control" type="text" name="DateOfBirth" data-bind="value: Account().DateOfBirth" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <div class="checkbox checkbox-primary checkbox-inline">
+                                        <input type="checkbox" class="styled" id="ActiveCheckBox" data-bind="checked: Account().IsActive">
+                                        <label for="ActiveCheckBox">Active</label>
+                                    </div>
+                                    <div class="checkbox checkbox-primary checkbox-inline">
+                                        <input type="checkbox" class="styled" id="CompanyAdminCheckBox" data-bind="checked: Account().IsCompanyAdmin">
+                                        <label for="CompanyAdminCheckBox">Company Admin</label>
+                                    </div>
+                                    <button class="btn btn-w-md btn-success pull-right" data-bind="click: SaveAccount">Save</button>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <input id="Password" class="form-control" type="text" placeholder="Enter new password" name="Password" data-bind="value: Password" />
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <button class="btn btn-w-md btn-warning" data-bind="click: SaveNewPassword">Save New Password</button>
+                                    <button class="btn btn-w-md btn-warning" data-bind="click: ResetPassword">Send Reset Password Link</button>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <button class="btn btn-w-md btn-warning pull-right" data-bind="click: GoBackToAccounts">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
